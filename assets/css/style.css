@@ -12,13 +12,13 @@
 
 :root {
   --bg-color: #081b29;
-  --main-color: #00abf0;
+  --main-color: #f06400;
   --text-color: #333;
   --second-text-color: #555;
   --white-color: #fff;
-  --cover-color: linear-gradient(45deg, #00abf0, #006e9a);
+  --cover-color: linear-gradient(45deg, #f06400, #e66d03);
   --pages-color: linear-gradient(90deg, #fff, #ddd);
-  --border: 0.125rem solid #00abf0;
+  --border: 0.125rem solid #f06400;
   --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
 }
 body {
