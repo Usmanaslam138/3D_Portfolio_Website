@@ -25,7 +25,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg-color);
+  background: var(--bg-color) !important;
   min-height: 100vh;
   color: var(--text-color);
   font-family: "Poppins", sans-serif !important;
@@ -33,9 +33,22 @@ body {
 .wrapper {
   position: relative;
   width: 66rem;
-  height: 45rem;
+  height: 43.5rem;
+  perspective: 250rem;
   /* height: 100vh; */
   padding: 2rem;
+  animation: show-animate 2s forwards;
+}
+@keyframes show-animate {
+  0%,
+  30% {
+    opacity: 0;
+    transform: rotate(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
 }
 .cover {
   position: absolute;
@@ -52,6 +65,10 @@ body {
 .cover.cover-left {
   z-index: -1;
 }
+.cover.cover-right {
+  z-index: 100;
+  transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
 .cover.cover-right.turn {
   transform: rotateY(180deg);
 }
@@ -63,6 +80,7 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
+  perspective: 250rem;
 }
 .book .book-page {
   position: absolute;
@@ -72,6 +90,9 @@ body {
   box-shadow: 0 0 0.6rem rgba(0 0 0 0.1);
   display: flex;
   padding: 2rem;
+}
+.book-page.page-left {
+  box-shadow: -0.6rem 0.6rem 0.6rem rgba(0 0 0 0.1);
 }
 .book-page .profile-page {
   display: flex;
@@ -161,7 +182,7 @@ body {
   right: 0;
   transform-style: preserve-3d;
   transform-origin: left;
-  transition: transform 1s;
+  transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .book-page.page-right.turn {
   transform: rotateY(-180deg);
